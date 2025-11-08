@@ -1,2 +1,5 @@
 # Roadmap.sh-Front-end-Projects
-This is my project demos for Roadmap.sh Project submission
+This is my project demos for Roadmap.sh Project submission  
+
+Here are the project desctiption links for the projects:  
+- Testimonial cards: https://roadmap.sh/projects/testimonial-cards
