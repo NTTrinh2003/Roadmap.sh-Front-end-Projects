@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Roadmap.sh Front-end learning project">
+        <meta name="keywords" content="roadmap, roadmap.sh, frontend, front-end, projects, Trinh Nguyen">
+        <meta name="author" content="Trinh Nguyen">
+
+        <title>Roadmap.sh - Front-end Projects</title>
+        <link rel="stylesheet" href="./css/main.css">
+    </head>
+    <body>
+        <header class="navbar">
+            <div class="mask-group">
+                <img src="./assets/images/github-avatar.png" alt="Avatar" class="icon avatar">
+                <p>NTTrinh212003</p>
+            </div>
+
+            <nav class="nav-buttons">
+                <button class="nav-btn about">About me</button>
+                <button class="nav-btn updates">Updates</button>
+            </nav>
+        </header>
+
+        <section class="title-section">
+            <h2 class="title-text">Frontend Projects</h2>
+        </section>
+
+        <main class="project-container">
+            <div class="dropdown-container">
+                <div class="dropdown-header" id="project-trigger" aria-haspopup="true" aria-expanded="false">
+                    <span class="dropdown-icon"><img src="./assets/icons/dropdown-icon.svg" alt=""></span>
+                    <span class="dropdown-label" id="selected-project">Project Options</span>
+                    <span class="dropdown-arrow"><img src="./assets/icons/dropdown-arrow.svg" alt=""></span>
+                </div>
+
+                <ul class="dropdown-menu" id="project-menu" role="menu" hidden>
+                </ul>
+
+                <div class="dropdown-align"></div>
+            </div>
+
+            <div class="component-viewer">
+                <div class="viewer-content">
+                    <h2>Component Content</h2>
+                </div>
+            </div>
+        </main>
+        
+        <script src="./js/main.js"></script>
+    </body>
+</html>
