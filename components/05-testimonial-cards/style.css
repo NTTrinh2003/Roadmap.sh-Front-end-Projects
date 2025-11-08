@@ -1,0 +1,80 @@
+.testimonial-cards-container {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+}
+
+.testimonial-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: large;
+  border: solid 0.15rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  /* gap: 1rem; */
+  height: 100%;
+}
+
+#no-1 {
+  width: calc(40% - .5rem);
+}
+
+#no-2 {
+  width: calc(60% - .5rem);
+}
+
+#no-3 {
+  width: 100%;
+}
+
+#no-4, #no-5 {
+  width: calc(50% - .5rem);
+}
+
+#no-6, #no-7, #no-8 {
+  width: calc(1/3 * 100% - (2rem / 3));
+}
+
+.testimonial-card > div {
+  position: static !important;
+  height: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  /* height: 4rem; */
+  margin-top: 1rem;
+}
+
+.testimonial-card > div > div {
+  height: auto !important;
+  display: block;
+}
+
+.testimonial-card .name {
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.testimonial-card .profile-pic {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 25%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+@media (max-width: 678px) {
+  .testimonial-cards-container {
+    flex-flow: column nowrap;
+  }
+
+  #no-1, #no-2, #no-3, #no-4, #no-5, #no-6, #no-7, #no-8 {
+    width: 100%;
+  }
+
+  .testimonial-card {
+    display: inline-block;
+    width: 100%;
+  }
+}

@@ -17,7 +17,7 @@ const ALL_PROJECTS = [
     "19-reddit-client",
     "20-temperature-converter",
     "21-pomodoro-timer",
-    "22-23-24final-projects"
+    "22-23-24-final-projects"
 ];
 
 const PROJECT_NAME = [
@@ -31,7 +31,7 @@ const PROJECT_NAME = [
     "Restricted Textarea",
     "Accordion",
     "Age Calculator",
-    "Flashcards",
+    "Flash Cards",
     "Custom Dropdown",
     "Task Tracker",
     "Github Random Repository",
@@ -39,13 +39,38 @@ const PROJECT_NAME = [
     "Temperature Converter",
     "Pomodoro Timer",
     "Final Projects"
-]
+];
+
+const PROJECT_DESCRIPTION_LINK = [
+    "https://roadmap.sh/projects/testimonial-cards",
+    "https://roadmap.sh/projects/datepicker-ui",
+    "https://roadmap.sh/projects/accessible-form-ui",
+    "https://roadmap.sh/projects/image-grid",
+    "https://roadmap.sh/projects/tooltip-ui",
+    "https://roadmap.sh/projects/simple-tabs",
+    "https://roadmap.sh/projects/cookie-consent",
+    "https://roadmap.sh/projects/restricted-textarea",
+    "https://roadmap.sh/projects/accordion",
+    "https://roadmap.sh/projects/age-calculator",
+    "https://roadmap.sh/projects/flash-cards",
+    "https://roadmap.sh/projects/custom-dropdown",
+    "https://roadmap.sh/projects/task-tracker-js",
+    "https://roadmap.sh/projects/github-random-repo",
+    "https://roadmap.sh/projects/reddit-client",
+    "https://roadmap.sh/projects/temperature-converter",
+    "https://roadmap.sh/projects/pomodoro-timer",
+
+];
+
+let currentComponentStyle = null;
+
 
 // DOM References
 const trigger       = document.getElementById("project-trigger");
 const label         = document.getElementById("selected-project");
 const menu          = document.getElementById("project-menu");
 const viewer        = document.querySelector(".viewer-content");
+const align         = document.querySelector(".dropdown-align");
 
 // Build menu
 function buildMenu() {
@@ -65,15 +90,15 @@ buildMenu();
 // Open / Close helpers
 function openDropdown() {
     menu.hidden = false;
-    menu.setAttribute("aria-hidden", false);
-    trigger.setAttribute("aria-expanded", true);
-    trigger.querySelector('.dropdown-arrow'.style.transform = 'rotate(180deg)');
+    menu.setAttribute("aria-hidden", 'false');
+    trigger.setAttribute("aria-expanded", 'true');
+    trigger.querySelector('.dropdown-arrow').style.transform = 'rotate(180deg)';
 };
 
 function closeDropdown() {
     menu.hidden = true;
-    menu.setAttribute("aria-hidden", true);
-    trigger.setAttribute("aria-expanded", false);
+    menu.setAttribute("aria-hidden", 'true');
+    trigger.setAttribute("aria-expanded", 'false');
     trigger.querySelector('.dropdown-arrow').style.transform = 'rotate(0deg)';
 };
 
@@ -85,15 +110,21 @@ trigger.addEventListener('click', (e) => {
 });
 
 // Load project on selection
-trigger.addEventListener('click', (e) => {
+menu.addEventListener('click', (e) => {
     const item = e.target.closest('li');
-    if (!item) return;
+    // if (!item) return;
     
     const name  = item.textContent.trim();
     const id    = item.dataset.value;
 
     // Update selected project
     label.textContent = name;
+    if (id != '22-23-24-final-projects') {
+        align.innerHTML = `<a href="${PROJECT_DESCRIPTION_LINK[ALL_PROJECTS.indexOf(id)]}" target="_blank" class="link-to-description">Link to project description</a>`;
+    } else {
+        // Links in the content viewer
+        align.innerHTML = ``;
+    }
 
     // Load project and close dropdown
     loadProject(id);
@@ -114,15 +145,36 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Load project by ID
-function loadProject(projectId) {
-    const iframe = document.createElement('iframe');
-    iframe.src = `./components/${projectId}/index.html`;
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.border = 'none';
 
-    // Clear previous content then add new one
-    viewer.innerHTML = ''; 
-    viewer.appendChild(iframe);
+// Load project by ID
+async function loadProject(projectId) {
+    const base = `./components/${projectId}`;
+
+    if (currentComponentStyle) {
+        currentComponentStyle.remove();
+        currentComponentStyle = null;
+    }
+
+    const cssLink = document.createElement('link');
+    cssLink.rel = 'stylesheet';
+    cssLink.href = `${base}/style.css`;
+    document.head.appendChild(cssLink);
+    currentComponentStyle = cssLink;
+
+    await new Promise((resolve, reject) => {
+        cssLink.onload = resolve;
+        cssLink.onerror = () => {
+            console.error(`Failed to load CSS for ${projectId}`);
+            resolve();
+        };
+    });
+
+    try {
+        const res = await fetch(`${base}/index.html`);
+        if (!res.ok) throw new Error(`Not found: ${projectId}`);
+        const html = await res.text();
+        viewer.innerHTML = html;
+    } catch(err) {
+        viewer.innerHTML = `<p style="color:red;">Error loading component: ${err.message}</p>`
+    };
 }
