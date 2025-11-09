@@ -1,0 +1,193 @@
+/* Outer container layout */
+.accessible-form-container {
+    display: flex;
+    width: 80%;
+    max-width: 678px;
+    /* height: 80vh; */
+    width: 100%;
+    padding: 1rem;
+    margin: 7vh 0;
+    border-radius: 1rem;
+}
+
+/* Outer container styling */
+.accessible-form-container {
+    background-color: white;
+    box-shadow: rgba(9, 30, 66, .25) 0 4px 8px -2px;
+    border: solid #ccc 1px;
+}
+
+/* Inner container layout */
+.acf-inner-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 55% 45%;
+    grid-gap: 1.5rem;
+    padding: 1rem 2rem;
+}
+
+/* Input fields layout */
+.acf-input-fields {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 50px;
+}
+
+/* Each input field layout */
+.acf-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.acf-input.email input,
+.acf-input.email input:focus,
+.acf-input.email input:hover {
+    /* border-color: red !important; */
+    border: none;
+    outline: solid red;
+    color: red;
+}
+
+.acf-input.email p {
+    color: red;
+    font-size: 14px;
+}
+
+/* Text input fields layout */
+.acf-input input {
+    margin: .5rem .5rem .5rem 0;
+    padding: .5rem;
+    border: solid #ccc 3px;
+    border-radius: .5rem;
+}
+
+/* Input field's labels layout */
+.acf-input label {
+    margin-bottom: .5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Submit button layout */
+.acf-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.acf-submit button {
+    width: 80%;
+    height: 65%;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: .5rem;
+    outline: none;
+    cursor: pointer;
+    background-color: #444;
+    color: white;
+}
+
+.acf-submit button:hover {
+    background-color: #000;
+    /* color: black; */
+}
+
+/* Progress layout */
+.acf-progress {
+    display: grid;
+    grid-template-rows: 10rem 1fr;
+}
+
+/* Completeness chart layout */
+.acf-show-completeness {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.acf-show-completeness .acf-chart-progress {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: conic-gradient(
+        rgb(26, 112, 26) 0% 65%, /* Current progress */
+        rgb(188, 188, 188) 65% 100% /* Remaining progress */
+    );
+}
+
+.acf-show-completeness .acf-percentage {
+    display: flex;
+    width: 9.5rem;
+    height: 9.5rem;
+    border-radius: 50%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background: white;
+}
+
+/* Detail Profile Progress */
+.acf-completeness-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: .5rem;
+}
+
+.acf-completeness-list .acf-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.acf-completeness-list .acf-list {
+    flex: 1;
+    display: flex;
+    /* justify-content: space-around; */
+    gap: 1rem;
+    flex-direction: column;
+    padding: 2.5rem 2rem;
+    /* align-items: center; */
+}
+
+.acf-completeness-list .acf-list {
+    border: none;
+    border-radius: 1rem;
+    background-color: #ddd;
+    font-size: 14px;
+}
+
+.acf-completeness-list .acf-list .active {
+    list-style-type: none;
+    color: #000;
+    /* margin-bottom: .5rem; */
+}
+
+.acf-completeness-list .acf-list .done {
+    text-decoration: line-through;
+    color: #666;
+}
+
+@media (max-width: 678px) {
+    .acf-inner-container {
+        /* display: grid; */
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "completion"
+            "form";
+    }
+
+    
+    .acf-progress {
+        grid-area: completion;
+    }
+
+    .acf-input-fields {
+        grid-area: form;
+    }
+
+}
