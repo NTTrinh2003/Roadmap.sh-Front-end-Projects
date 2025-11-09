@@ -1,3 +1,156 @@
-.component-title {
-    color:red;
+/* Using no Grid, only Flexbox */
+
+/* Global Styles */
+.dp-icon img, .dp-cal-nav img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: fill;
 }
+
+:root {
+    --dp-border-radius: .5rem;
+}
+
+/* Overall Container */
+.dp-container {
+    display: flex;
+    flex-direction: column;
+    width: 24rem;
+    border: solid black 2px;
+    border-radius: var(--dp-border-radius);
+    padding: .5rem;
+    gap: .5rem;
+}
+
+/* - Input group */
+.dp-input-group {
+    display: flex;
+    justify-content: space-between;
+    padding: .5rem;
+    border: solid #aaa 2px;
+}
+
+/* -- Global for input group elements */
+.dp-input-group * {
+    display: flex;
+    align-items: center;
+}
+
+/* -- Input container */
+.dp-input.date {
+    width: 80%;
+}
+
+/* --- Input styling */
+.dp-input-group input[type="text"] {
+    /* Remove default border on focus */
+    border: none;
+    outline: none;
+
+    width: 100%;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* --- Add outer border when focused */
+.dp-input-group:has(input:focus) {
+    border: solid black 2px;
+}
+
+/* DONE */
+
+/* - Calendar Styling */
+.dp-calendar {
+    display: flex;
+    flex-direction: column;
+    border: solid;
+}
+
+/* -- Header */
+.dp-cal-header {
+    display: flex;
+    justify-content: space-between;
+    padding: .25rem 1rem;
+}
+
+.dp-cal-header * {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+/* --- Month and Year */
+.dp-cal-month-year {
+    display: flex;
+    gap: .5rem;
+}
+
+/* -- Calendar Content */
+.dp-cal-content {
+    display: flex;
+    flex-direction: column;
+    /* border: solid; */
+}
+
+/* --- Week Days */
+.dp-cal-weekdays {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: .5rem; */
+    /* border: solid; */
+}
+
+/* Week days style */
+.dp-cal-weekdays div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 2.75rem; */
+    width: calc(100% / 7);
+}
+
+/* --- Days */
+.dp-cal-days {
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    border-top: solid;
+    /* gap: .5rem; */
+}
+
+/* Day Style */
+.dp-cal-days .line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-top: #aaa solid 2px;
+    /* border-bottom: #aaa solid 2px; */
+}
+
+.dp-cal-days .line:first-child {
+    border-top: none;
+}
+
+/* .dp-cal-days .line:last-child {
+    border-bottom: none;
+} */
+
+.dp-cal-days .line > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% / 7);
+    height: 3.25rem;
+    border-left: #aaa solid 2px;
+}
+
+.dp-cal-days .line > div:first-child {
+    /* background-color: #ddd; */
+    border-left: none;
+}
+
+/* Edge day of the calendar border modification */
+/* .dp-cal-days div:first-child {
+
+} */
