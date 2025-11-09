@@ -209,8 +209,11 @@ body {
 }
 
 .viewer-content {
+    width: 100%;
     font-size: 1.5rem;
     color: var(--navy-dark);
+    display: flex;
+    justify-content: center;
 }
 
 .link-to-description,
