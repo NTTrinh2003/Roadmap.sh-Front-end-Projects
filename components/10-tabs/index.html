@@ -1,0 +1,57 @@
+<div class="inner-container">
+    <div class="tab-headers">
+        <div class="active" onclick="changeTab('task-1')">Task 1</div>
+        <div class="non-active" onclick="changeTab('task-2')">Task 2</div>
+        <div class="non-active" onclick="changeTab('task-3')">Task 3</div>
+        <div class="non-active" onclick="changeTab('task-4')">Task 4</div>
+    </div>
+    <div class="task-tab active" id="task-1" >
+        <h1>Task 1</h1>
+        <div class="task-name">
+            <p>Doing Laundry</p>
+        </div>
+        <div class="task-description">
+            <p>Make sure all clothes clean</p>
+        </div>
+        <div class="time">
+            <p>8:00 AM</p>
+        </div>
+    </div>
+    <div class="task-tab non-active" id="task-2" onclick="changeTab(this.id)">
+        <h1>Task 2</h1>
+        <div class="task-name">
+            <p>Doing project</p>
+        </div>
+        <div class="task-description">
+            <p>Finish layout of task tabs project</p>
+        </div>
+        <div class="time">
+            <p>7:00 AM - 10:30 AM</p>
+        </div>
+    </div>
+    <div class="task-tab non-active" id="task-3">
+        <h1>Task 3</h1>
+        <div class="task-name">
+            <p>Go to work</p>
+        </div>
+        <div class="task-description">
+            <p>Work as part-time worker</p>
+        </div>
+        <div class="time">
+            <p>12:00 PM - 6:00 PM</p>
+        </div>
+    </div>
+    <div class="task-tab non-active" id="task-4">
+        <h1>Task 4</h1>
+        <div class="task-name">
+            <p>AI Interview Preps</p>
+        </div>
+        <div class="task-description">
+            <!-- <p>Review basics</p> -->
+            <p>Refresh CS fundamentals (Data Structures and Algorithms)</p>
+        </div>
+        <div class="time">
+            <p>8:00 PM - 10:00 PM</p>
+        </div>
+    </div>
+</div>

@@ -1,13 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    background-color: #ccc;
-    font-family: sans-serif;
-}
-
 /* Basic Layout */
 .container {
     width: 80vw;
@@ -24,7 +14,7 @@ body {
     display: grid;
     grid-template-columns: repeat(5, 25%);
     grid-template-rows: repeat(9, 120px);
-    transform: rotate(-15deg) translateX(-3%) translateY(-35%);
+    transform: rotate(-15deg) translateX(-3%) translateY(-35%); /* Takes a lot of space in GPU -> Need to be optimized */
 
 }
 
