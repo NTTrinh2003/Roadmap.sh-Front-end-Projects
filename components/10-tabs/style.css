@@ -1,0 +1,79 @@
+/* Container Style */
+.container {
+    width: 60vw;
+    height: 60vh;
+    margin: 15vh auto 25vh auto;
+}
+
+/* Inner Container Style */
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    border: solid #000 1px;
+    border-radius: 1rem;
+}
+
+/* Tab Headers */
+.tab-headers {
+    display: flex;
+    padding: 0 1rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Tab Header Styling */
+.tab-headers div {
+    display: flex;
+    cursor: pointer;
+    padding: .75rem 0;
+    width: 5rem;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+}
+
+/* Current Tab Header */
+.tab-headers .active {
+    border-bottom: #000 solid;
+    font-weight: bolder;
+    color: #000;
+}
+
+/* Task Tabs */
+.task-tab {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+}
+
+/* Task Tab Header Styling */
+.task-tab h1 {
+    margin-bottom: 0.5rem;
+}
+
+/* Task Name and Description and Time */
+.task-tab .task-name {
+    height: 20%;
+    margin-bottom: 2rem;
+    font-size: large;
+    color: #444;
+}
+
+.task-tab .task-description {
+    font-size: small;
+    height: 30%;
+    margin-bottom: 2rem;
+}
+
+.task-tab .time {
+    font-size: smaller;
+}
+
+.task-tab.non-active {
+    display: none;
+}
+

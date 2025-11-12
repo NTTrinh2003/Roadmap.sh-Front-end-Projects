@@ -161,6 +161,15 @@ async function loadProject(projectId) {
     document.head.appendChild(cssLink);
     currentComponentStyle = cssLink;
 
+
+    const jsScript = document.createElement('script');
+    jsScript.src = `${base}/script.js`;
+    if (jsScript != null) { 
+
+    
+    document.body.appendChild(jsScript);
+    }
+
     await new Promise((resolve, reject) => {
         cssLink.onload = resolve;
         cssLink.onerror = () => {
