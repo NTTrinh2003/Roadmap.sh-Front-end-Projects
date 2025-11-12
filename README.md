@@ -6,3 +6,4 @@ Here are the project desctiption links for the projects:
 - Datepicker UI: https://roadmap.sh/projects/datepicker-ui
 - Accessible Form UI: https://roadmap.sh/projects/accessible-form-ui
 - Tooltip UI: https://roadmap.sh/projects/tooltip-ui
+- Tabs: https://roadmap.sh/projects/simple-tabs
